@@ -16,7 +16,22 @@
     <p>{{ site.description }}</p>
   </header>
   <main>
-    {{ content }}
+      <div class="container">
+        <aside class="sidebar">
+          <h2>Latest Blog News</h2>
+          <ul>
+            {% for post in site.posts limit:5 %}
+              <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                <span class="post-date">{{ post.date | date: '%b %d, %Y' }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </aside>
+        <section class="content-details">
+          {{ content }}
+        </section>
+      </div>
   </main>
   <footer>
     <p>&copy; {{ site.author }} {{ site.time | date: '%Y' }}</p>
