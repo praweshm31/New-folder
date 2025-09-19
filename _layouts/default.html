@@ -29,7 +29,23 @@
           </ul>
         </aside>
         <section class="content-details">
-          {{ content }}
+          {% if page.layout == "post" %}
+            {{ content }}
+          {% else %}
+            <h2>Welcome to Tech News Blog</h2>
+            <p>Stay updated with the latest technology news, trends, and insights. Explore our featured articles and recent posts below.</p>
+            <div class="featured-posts">
+              <h3>Featured Posts</h3>
+              <ul>
+                {% for post in site.posts limit:3 %}
+                  <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                    <span class="post-date">{{ post.date | date: '%b %d, %Y' }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
         </section>
       </div>
   </main>
