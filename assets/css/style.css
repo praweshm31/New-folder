@@ -1515,11 +1515,51 @@ body:not(.loaded) * {
    BLOG CARDS & GRID
    =================================================================== */
 
+
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-8);
   margin: var(--space-16) 0;
+}
+
+@media (max-width: 900px) {
+  .content-with-sidebar {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding: var(--space-4);
+  }
+  .sidebar {
+    position: static;
+    margin-top: var(--space-8);
+    max-width: 100%;
+    width: 100%;
+    border-radius: var(--radius-lg);
+  }
+}
+
+@media (max-width: 600px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .post-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
+    padding: var(--space-2);
+  }
+  .post-content {
+    padding: var(--space-4);
+  }
+  .post-title {
+    font-size: var(--font-size-lg);
+  }
+  .post-excerpt {
+    font-size: var(--font-size-sm);
+  }
+  .sidebar {
+    padding: var(--space-4);
+  }
 }
 
 .post-card {

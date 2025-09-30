@@ -36,10 +36,9 @@ layout: default
           {% assign featured_posts = site.posts | limit: 6 %}
           {% for post in featured_posts %}
           <article class="post-card scroll-fade-in">
-            {% if post.image %}
             <div class="post-image-container">
               <img 
-                src="{{ post.image | relative_url }}" 
+                src="{{ post.image | default: '/assets/images/ai-post-image-1.png' | relative_url }}" 
                 alt="{{ post.title | escape }}" 
                 class="post-image"
                 loading="lazy"
@@ -50,7 +49,6 @@ layout: default
               <span class="post-category">{{ post.category | replace: '-', ' ' | capitalize }}</span>
               {% endif %}
             </div>
-            {% endif %}
             
             <div class="post-content">
               <div class="post-meta">
@@ -259,22 +257,14 @@ layout: default
           {% for post in popular_posts %}
           <li class="sidebar-post">
             <a href="{{ post.url | relative_url }}" class="sidebar-post-link">
-              {% if post.image %}
               <img 
-                src="{{ post.image | relative_url }}" 
+                src="{{ post.image | default: '/assets/images/ai-post-image-1.png' | relative_url }}" 
                 alt="{{ post.title | escape }}" 
                 class="sidebar-post-image"
                 loading="lazy"
                 width="48"
                 height="48"
               >
-              {% else %}
-              <div class="sidebar-post-placeholder">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                </svg>
-              </div>
-              {% endif %}
               <div class="sidebar-post-content">
                 <h4 class="sidebar-post-title">{{ post.title | truncate: 50 }}</h4>
                 <time class="sidebar-post-date">{{ post.date | date: "%b %d" }}</time>
