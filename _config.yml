@@ -4,8 +4,8 @@
 # Site settings
 title: "Modern Tech Blog"
 description: "Discover the latest in technology, programming tutorials, and industry insights. Stay ahead with expert analysis and practical guides."
-url: "https://yourusername.github.io" # Replace with your GitHub Pages URL
-baseurl: "/New-folder" # Leave empty if hosting at root
+url: "https://praweshm31.github.io"
+baseurl: "/New-folder"
 language: "en"
 timezone: "Asia/Kolkata" # Adjust to your timezone
 
@@ -16,37 +16,29 @@ author:
   bio: "Tech enthusiast, developer, and blogger passionate about sharing knowledge and insights."
   
 # Social media profiles
-social:
-  twitter: "https://twitter.com/yourusername"
-  github: "https://github.com/yourusername"
-  linkedin: "https://linkedin.com/in/yourusername"
-  youtube: "https://youtube.com/@yourusername"
-  email: "your.email@example.com"
+  twitter: "https://twitter.com/praweshm31"
+  github: "https://github.com/praweshm31"
+  linkedin: "https://linkedin.com/in/praweshm31"
+  youtube: "https://youtube.com/@praweshm31"
+  email: "prmeshram358@gmail.com"
 
 # Site features
 features:
   search: true
-  dark_mode: true
-  newsletter: true
   comments: false
   analytics: false
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
-permalink: /:categories/:year/:month/:day/:title/
-
-# Kramdown settings
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: 'highlight'
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
+input: GFM
+syntax_highlighter: rouge
+syntax_highlighter_opts:
+  css_class: 'highlight'
+  span:
+    line_numbers: false
+  block:
+    line_numbers: true
+    start_line: 1
 
 # Plugins
 plugins:
@@ -156,12 +148,11 @@ toc:
   max_level: 4
 
 # Code highlighting
-highlight_theme: "github" # Options: github, github-dark, monokai, etc.
-
-# Image optimization
-image_optim:
-  enabled: true
-  quality: 85
+social:
+  twitter: "https://twitter.com/praweshm31"
+  github: "https://github.com/praweshm31"
+  linkedin: "https://linkedin.com/in/praweshm31"
+  youtube: "https://youtube.com/@praweshm31"
   formats:
     - webp
     - jpg
