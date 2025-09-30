@@ -1479,6 +1479,8 @@ body:not(.loaded) * {
   margin-bottom: var(--space-6);
   letter-spacing: var(--letter-spacing-tight);
 }
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
 
 .hero-description {
   font-size: var(--font-size-xl);
