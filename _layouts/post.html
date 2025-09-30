@@ -1,0 +1,66 @@
+---
+layout: default
+---
+<article class="post">
+  <div class="container">
+    <header class="post-header">
+      {% if page.image %}
+      <div class="post-hero-image">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="featured-image">
+      </div>
+      {% endif %}
+      
+      <div class="post-meta">
+        <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%B %d, %Y" }}
+        </time>
+        {% if page.author %}
+        <span class="post-author">
+          By {{ page.author }}
+        </span>
+        {% endif %}
+        {% if page.categories %}
+        <span class="post-categories">
+          {% for category in page.categories %}
+          <a href="{{ '/categories/' | append: category | slugify | relative_url }}" class="post-category">{{ category | replace: '-', ' ' | capitalize }}</a>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+
+      <h1 class="post-title">{{ page.title }}</h1>
+      
+      {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+      {% endif %}
+    </header>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    {% if page.tags %}
+    <div class="post-tags">
+      {% for tag in page.tags %}
+      <a href="{{ '/tags/' | append: tag | slugify | relative_url }}" class="post-tag">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="post-navigation">
+      {% if page.previous.url %}
+      <a class="prev-post" href="{{ page.previous.url | relative_url }}">
+        <span>Previous Post</span>
+        <strong>{{ page.previous.title }}</strong>
+      </a>
+      {% endif %}
+      
+      {% if page.next.url %}
+      <a class="next-post" href="{{ page.next.url | relative_url }}">
+        <span>Next Post</span>
+        <strong>{{ page.next.title }}</strong>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

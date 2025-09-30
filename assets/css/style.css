@@ -37,10 +37,11 @@
   object-fit: contain;
 }
 
+/* Post and Card Images */
 .post-image {
   width: 100%;
   height: auto;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/9; /* Standard widescreen ratio */
   object-fit: cover;
   border-radius: 12px;
   background: #f8fafc;
@@ -50,6 +51,118 @@
 .post-card:hover .post-image {
   transform: scale(1.03);
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* Single Post Styles */
+.post {
+  padding: 2rem 0;
+  background: #fff;
+}
+
+.post .container {
+  max-width: 800px; /* Optimal reading width */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.post-hero-image {
+  margin: -2rem -2rem 2rem;
+  height: 400px;
+  overflow: hidden;
+}
+
+.post-hero-image .featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.post-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.post-description {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.post-content {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.post-tags {
+  margin-top: 3rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.post-navigation {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.prev-post,
+.next-post {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.prev-post span,
+.next-post span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Post Layout */
+@media (max-width: 768px) {
+  .post-hero-image {
+    height: 300px;
+    margin: -1rem -1rem 1.5rem;
+  }
+  
+  .post-title {
+    font-size: 2rem;
+  }
+  
+  .post-description {
+    font-size: 1.125rem;
+  }
+  
+  .post-content {
+    font-size: 1rem;
+  }
+  
+  .post-navigation {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 :root {
   /* Primitive Color Tokens */
