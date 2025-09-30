@@ -1,3 +1,56 @@
+
+/* === Unified Modern Layout Overrides (Buzzsprout-style, white, laptop-optimized) === */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 72px);
+  background: #fff;
+  padding: 2rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.site-footer {
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  margin-top: auto;
+  padding: 2rem 0 1rem;
+}
+
+.logo-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+.post-card:hover .post-image {
+  transform: scale(1.03);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
 :root {
   /* Primitive Color Tokens */
   --color-white: rgba(255, 255, 255, 1);
