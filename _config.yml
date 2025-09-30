@@ -5,7 +5,7 @@
 title: "Modern Tech Blog"
 description: "Discover the latest in technology, programming tutorials, and industry insights. Stay ahead with expert analysis and practical guides."
 url: "https://yourusername.github.io" # Replace with your GitHub Pages URL
-baseurl: "" # Leave empty if hosting at root
+baseurl: "/New-folder" # Leave empty if hosting at root
 language: "en"
 timezone: "Asia/Kolkata" # Adjust to your timezone
 
