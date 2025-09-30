@@ -1,60 +1,15 @@
----
-# Main layout for Tech News Blog
----
+html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
+{% include head.html %}
 <body>
-  <header>
-    <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-    <p>{{ site.description }}</p>
-  </header>
-  <main>
-      <div class="container">
-        <aside class="sidebar">
-          <h2>Latest Blog News</h2>
-          <ul>
-            {% for post in site.posts limit:5 %}
-              <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-                <span class="post-date">{{ post.date | date: '%b %d, %Y' }}</span>
-              </li>
-            {% endfor %}
-          </ul>
-        </aside>
-        <section class="content-details">
-          {% if page.layout == "post" %}
-            {{ content }}
-          {% else %}
-            <h2>Welcome to Tech News Blog</h2>
-            <p>Stay updated with the latest technology news, trends, and insights. Explore our featured articles and recent posts below.</p>
-            <div class="featured-posts">
-              <h3>Featured Posts</h3>
-              <ul>
-                {% for post in site.posts limit:3 %}
-                  <li>
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                    <span class="post-date">{{ post.date | date: '%b %d, %Y' }}</span>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endif %}
-        </section>
-      </div>
+  {% include header.html %}
+  
+  <main id="main-content">
+    {{ content }}
   </main>
-  <footer>
-    <p>&copy; {{ site.author }} {{ site.time | date: '%Y' }}</p>
-    <p>
-      <a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a> |
-      <a href="https://github.com/{{ site.github_username }}">GitHub</a>
-    </p>
-  </footer>
+  
+  {% include footer.html %}
+  {% include scripts.html %}
 </body>
 </html>

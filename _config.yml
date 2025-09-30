@@ -1,19 +1,349 @@
+# Jekyll Configuration File for Modern Tech Blog
+# ==============================================
+
 # Site settings
+title: "Modern Tech Blog"
+description: "Discover the latest in technology, programming tutorials, and industry insights. Stay ahead with expert analysis and practical guides."
+url: "https://yourusername.github.io" # Replace with your GitHub Pages URL
+baseurl: "" # Leave empty if hosting at root
+language: "en"
+timezone: "Asia/Kolkata" # Adjust to your timezone
 
-# Change these values to customize your site
+# Site metadata
+author:
+  name: "Prawesh Meshram"
+  email: "prmeshram358@gmail.com"
+  bio: "Tech enthusiast, developer, and blogger passionate about sharing knowledge and insights."
+  
+# Social media profiles
+social:
+  twitter: "https://twitter.com/yourusername"
+  github: "https://github.com/yourusername"
+  linkedin: "https://linkedin.com/in/yourusername"
+  youtube: "https://youtube.com/@yourusername"
+  email: "your.email@example.com"
 
-title: Tech News Blog
-description: The latest updates and insights in technology.
-author: Prawesh Meshram
-email: prmeshram358@gmail.com
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yourgithubusername.github.io/tech-news-blog" # your GitHub Pages URL
+# Site features
+features:
+  search: true
+  dark_mode: true
+  newsletter: true
+  comments: false
+  analytics: false
 
 # Build settings
-theme: minima
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Plugins
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-redirect-from
 
-# Social
-twitter_username: yourtwitter
-github_username: yourgithubusername
+# Pagination
+paginate: 9
+paginate_path: "/blog/page:num/"
+
+# Jekyll Archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: '/categories/:name/'
+    tag: '/tags/:name/'
+
+# Collections
+collections:
+  tutorials:
+    output: true
+    permalink: /:collection/:name/
+  reviews:
+    output: true
+    permalink: /:collection/:name/
+
+# Default front matter
+defaults:
+  # Posts
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: false
+      share: true
+      toc: false
+      sidebar: true
+      related: true
+  # Pages
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      sidebar: false
+  # Tutorials
+  - scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "tutorial"
+      toc: true
+      sidebar: true
+  # Reviews
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "review"
+      sidebar: true
+      rating: true
+
+# SEO settings
+seo:
+  type: "WebSite"
+  name: "Modern Tech Blog"
+  headline: "Latest Technology News, Tutorials, and Insights"
+  links:
+    - "https://twitter.com/yourusername"
+    - "https://github.com/yourusername"
+
+# Google Analytics (uncomment and add your tracking ID)
+# google_analytics: "G-XXXXXXXXXX"
+
+# Google Tag Manager (uncomment and add your container ID)
+# gtm_id: "GTM-XXXXXXX"
+
+# Disqus comments (uncomment and add your shortname)
+# disqus:
+#   shortname: "your-disqus-shortname"
+
+# Newsletter service (Mailchimp example)
+newsletter:
+  provider: "mailchimp"
+  action_url: "https://your-mailchimp-form-action-url"
+  # For other providers like ConvertKit, Substack, etc., adjust accordingly
+
+# Reading time calculation
+reading_time:
+  enabled: true
+  words_per_minute: 200
+
+# Table of Contents
+toc:
+  enabled: true
+  min_level: 2
+  max_level: 4
+
+# Code highlighting
+highlight_theme: "github" # Options: github, github-dark, monokai, etc.
+
+# Image optimization
+image_optim:
+  enabled: true
+  quality: 85
+  formats:
+    - webp
+    - jpg
+    - png
+
+# PWA settings
+pwa:
+  enabled: false
+  name: "Modern Tech Blog"
+  short_name: "TechBlog"
+  description: "Your go-to source for tech insights"
+  theme_color: "#2563eb"
+  background_color: "#ffffff"
+  start_url: "/"
+  
+# Related posts
+related_posts:
+  enabled: true
+  max_count: 3
+  min_common_tags: 1
+
+# Category/Tag settings
+category_colors:
+  web-development: "#3b82f6"    # Blue
+  ai-ml: "#8b5cf6"              # Purple
+  cloud-computing: "#06b6d4"    # Cyan
+  cybersecurity: "#ef4444"      # Red
+  mobile-dev: "#22c55e"         # Green
+  devops: "#f59e0b"            # Orange
+
+# Homepage settings
+homepage:
+  hero:
+    enabled: true
+    background_type: "gradient" # Options: gradient, image, video
+    background_gradient:
+      - "#2563eb"
+      - "#1d4ed8"
+  featured_posts:
+    enabled: true
+    count: 6
+  categories:
+    enabled: true
+    featured:
+      - web-development
+      - ai-ml
+      - cloud-computing
+      - cybersecurity
+      - mobile-dev
+      - devops
+  newsletter:
+    enabled: true
+
+# Navigation menu
+navigation:
+  - name: "Home"
+    url: "/"
+  - name: "Categories"
+    url: "#"
+    dropdown:
+      - name: "Web Development"
+        url: "/categories/web-development"
+      - name: "AI & Machine Learning"
+        url: "/categories/ai-ml"
+      - name: "Cloud Computing"
+        url: "/categories/cloud-computing"
+      - name: "Cybersecurity"
+        url: "/categories/cybersecurity"
+      - name: "Mobile Development"
+        url: "/categories/mobile-dev"
+      - name: "DevOps"
+        url: "/categories/devops"
+  - name: "Tutorials"
+    url: "/tutorials"
+  - name: "Reviews"
+    url: "/reviews"
+  - name: "About"
+    url: "/about"
+
+# Footer settings
+footer:
+  links:
+    - name: "Privacy Policy"
+      url: "/privacy-policy"
+    - name: "Terms of Service"
+      url: "/terms-of-service"
+    - name: "Contact"
+      url: "/contact"
+    - name: "RSS"
+      url: "/feed.xml"
+
+# Contact information
+contact:
+  email: "contact@yourdomain.com"
+  phone: "+1-XXX-XXX-XXXX"
+  address: "Your Address, City, Country"
+
+# Performance settings
+sass:
+  style: compressed
+  sourcemap: false
+
+# Compression
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  startings: [html, head, body]
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - package.json
+  - package-lock.json
+  - webpack.config.js
+  - rollup.config.js
+  - gulpfile.js
+  - README.md
+  - LICENSE
+  - CHANGELOG.md
+  - "*.log"
+
+# Include files
+include:
+  - _pages
+  - .htaccess
+  - _redirects
+
+# Liquid options
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+# Development settings (remove or set to false for production)
+incremental: false
+profile: false
+safe: true
+future: false
+unpublished: false
+limit_posts: 0
+
+# GitHub Pages specific settings
+github:
+  repository_nwo: "yourusername/yourrepository"
+  
+# Custom variables (you can add your own here)
+custom:
+  logo_path: "/assets/images/logo.svg"
+  favicon_path: "/assets/images/favicon.ico"
+  default_image: "/assets/images/default-post.jpg"
+  hero_image: "/assets/images/hero-bg.jpg"
+  
+# Site verification codes (add your verification codes here)
+webmaster_verifications:
+  google: "your-google-verification-code"
+  bing: "your-bing-verification-code"
+  yandex: "your-yandex-verification-code"
+  pinterest: "your-pinterest-verification-code"
+
+# Structured data
+structured_data:
+  type: "Blog"
+  publisher:
+    type: "Organization"
+    name: "Modern Tech Blog"
+    logo: "/assets/images/logo.svg"
+
+# Content Security Policy (CSP) settings
+csp:
+  enabled: false
+  report_only: true
+  policy:
+    default_src: "'self'"
+    script_src: "'self' 'unsafe-inline' https:"
+    style_src: "'self' 'unsafe-inline' https:"
+    img_src: "'self' data: https:"
+    font_src: "'self' https:"
+    connect_src: "'self' https:"
