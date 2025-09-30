@@ -10,6 +10,7 @@ class TechBlog {
   init() {
     this.setupEventListeners();
     this.initializeTheme();
+    this.initializeMobileMenu();
     this.initializeComponents();
     this.handlePageLoad();
   }
@@ -43,7 +44,7 @@ class TechBlog {
   }
 
   onWindowResize() {
-    this.handleMobileMenu();
+    this.handleMobileMenuResize();
     this.updateViewportHeight();
   }
 
@@ -70,11 +71,58 @@ class TechBlog {
     // Initialize theme before other components to prevent flash
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Set up theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
   }
 
-  handleMobileMenu() {
+  initializeMobileMenu() {
+    this.mobileToggle = document.getElementById('mobile-toggle');
+    this.navMenu = document.getElementById('nav-menu');
+
+    if (!this.mobileToggle || !this.navMenu) return;
+
+    // Toggle mobile menu
+    this.mobileToggle.addEventListener('click', () => {
+      const isExpanded = this.mobileToggle.getAttribute('aria-expanded') === 'true';
+      this.toggleMobileMenu(!isExpanded);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!this.navMenu.contains(e.target) && 
+          !this.mobileToggle.contains(e.target) && 
+          this.navMenu.classList.contains('active')) {
+        this.toggleMobileMenu(false);
+      }
+    });
+  }
+
+  toggleMobileMenu(show) {
+    if (!this.mobileToggle || !this.navMenu) return;
+
+    this.mobileToggle.setAttribute('aria-expanded', show);
+    this.mobileToggle.classList.toggle('active', show);
+    this.navMenu.classList.toggle('active', show);
+
+    if (show) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  handleMobileMenuResize() {
     if (window.innerWidth > 768) {
-      this.mobileNav?.close();
+      this.toggleMobileMenu(false);
     }
   }
 
