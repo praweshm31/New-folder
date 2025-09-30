@@ -307,10 +307,10 @@ github:
   
 # Custom variables (you can add your own here)
 custom:
-  logo_path: "/assets/images/logo.svg"
+  logo_path: "/assets/images/logo.png"
   favicon_path: "/assets/images/favicon.ico"
-  default_image: "/assets/images/default-post.jpg"
-  hero_image: "/assets/images/hero-bg.jpg"
+  default_image: "/assets/images/ai-post-image-1.png"
+  hero_image: "/assets/images/hero-bg.png"
   
 # Site verification codes (add your verification codes here)
 webmaster_verifications:
@@ -325,7 +325,7 @@ structured_data:
   publisher:
     type: "Organization"
     name: "Modern Tech Blog"
-    logo: "/assets/images/logo.svg"
+    logo: "/assets/images/logo.png"
 
 # Content Security Policy (CSP) settings
 csp:
