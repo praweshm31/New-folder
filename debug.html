@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="container">
+  <h1>Debug: All Posts</h1>
+  
+  <div class="debug-info">
+    <h2>Number of Posts: {{ site.posts.size }}</h2>
+    
+    <h3>Post List:</h3>
+    <ul>
+    {% for post in site.posts %}
+      <li>
+        <strong>Title:</strong> {{ post.title }}<br>
+        <strong>Date:</strong> {{ post.date }}<br>
+        <strong>Layout:</strong> {{ post.layout }}<br>
+        <strong>URL:</strong> {{ post.url }}<br>
+        <strong>Path:</strong> {{ post.path }}<br>
+        {% if post.image %}
+        <strong>Image:</strong> {{ post.image }}<br>
+        {% endif %}
+        <hr>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
